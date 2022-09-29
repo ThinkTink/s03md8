@@ -1,0 +1,14 @@
+# This is a basic workflow to help you get started with Actions
+name: CI
+on: [pull_request]
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build-and-test-server:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run tests
+        run: echo Hello, world!
