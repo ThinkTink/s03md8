@@ -25,4 +25,33 @@ const parseBearerToken = (rawAuthorizationHeader) => {
   return split[1];
 };
 
-module.exports = { generateSignedJWT, parseBearerToken };
+/**
+ * Get date from 
+ * @param {string} rawAuthorizationHeader
+ * @returns
+ */
+ const getDate = (dateObj, orderBy) => {
+  if (!dateObj || !orderBy){
+    return null; 
+  }
+
+  const month = dateObj.getUTCMonth() + 1;
+  const day = dateObj.getUTCDate();
+  const year = dateObj.getUTCFullYear();
+
+  if (!(month && day && year)){
+    return null; 
+  }
+
+  if (orderBy === "month"){
+    return `${month}-${year}`
+  } else if (orderBy === "year"){
+    return `${year}`
+  } else {
+    return `${month}-${day}-${year}`
+  }
+};
+
+
+module.exports = { generateSignedJWT, parseBearerToken, getDate };
+
