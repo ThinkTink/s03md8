@@ -1,0 +1,44 @@
+{
+  "name": "blog-authors-be-node",
+  "version": "1.0.0",
+  "description": "A back-end node.js work simulation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "lint": "npx prettier --write .",
+    "test": "cross-env DATABASE_FILE=':memory:' SESSION_SECRET=notsecure jest --runInBand",
+    "seed": "node src/db/seed.js"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/jest.setup.js"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "luxon": "^2.3.1",
+    "morgan": "^1.10.0",
+    "sequelize": "^6.17.0",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "@jest/globals": "^27.5.1",
+    "cross-env": "^7.0.3",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.7",
+    "prettier": "2.6.2",
+    "supertest": "^6.2.2"
+  }
+}
